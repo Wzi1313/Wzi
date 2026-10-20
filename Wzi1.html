@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>王泽霖 · 个人简历</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0b0e13;
+    --card: #141a23;
+    --card2: #1a222e;
+    --red: #e63946;
+    --orange: #ff7a18;
+    --gold: #f2b33d;
+    --text: #e6edf3;
+    --sub: #8b98a9;
+  }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(230,57,70,.18), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,122,24,.14), transparent 45%),
+      var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 32px 16px 64px;
+    min-height: 100vh;
+  }
+
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  /* ===== 顶部信息卡 ===== */
+  .header {
+    position: relative;
+    background: linear-gradient(135deg, #1c2431 0%, #12171f 100%);
+    border: 1px solid #263140;
+    border-radius: 18px;
+    padding: 32px 34px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(0,0,0,.55);
+  }
+  .header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--red), var(--orange), var(--gold));
+  }
+  .header::after {
+    content: "APEX LEGENDS";
+    position: absolute;
+    right: -10px; bottom: -18px;
+    font-size: 68px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,.035);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .name-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+
+  .avatar {
+    width: 74px; height: 74px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--red), var(--orange));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; font-weight: 900; letter-spacing: -1px;
+    color: #fff;
+    box-shadow: 0 0 0 3px rgba(230,57,70,.22), 0 0 26px rgba(230,57,70,.45);
+    flex-shrink: 0;
+  }
+
+  h1 {
+    font-size: 34px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #fff, #ffcdb2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .tagline {
+    color: var(--sub);
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+  .tagline .hl { color: var(--orange); font-weight: 700; }
+
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+  .badge {
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(230,57,70,.45);
+    background: rgba(230,57,70,.10);
+    color: #ffb3b8;
+    letter-spacing: .5px;
+  }
+  .badge.gold { border-color: rgba(242,179,61,.5); background: rgba(242,179,61,.10); color: var(--gold); }
+  .badge.blue { border-color: rgba(96,165,250,.45); background: rgba(96,165,250,.10); color: #93c5fd; }
+
+  .contact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 10px 24px;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px dashed #2a3646;
+    font-size: 14px;
+  }
+  .contact div { color: var(--sub); }
+  .contact span { color: var(--text); margin-left: 6px; font-weight: 500; }
+  .contact a { color: var(--text); text-decoration: none; border-bottom: 1px dotted #3b4a5e; }
+  .contact a:hover { color: var(--orange); border-color: var(--orange); }
+
+  /* ===== 通用区块 ===== */
+  section {
+    background: var(--card);
+    border: 1px solid #222d3a;
+    border-radius: 16px;
+    padding: 26px 30px;
+    margin-top: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    transition: border-color .25s, transform .25s;
+  }
+  section:hover { border-color: #33455a; transform: translateY(-2px); }
+
+  h2 {
+    font-size: 17px;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    color: #fff;
+  }
+  h2::before {
+    content: "";
+    width: 6px; height: 20px;
+    border-radius: 3px;
+    background: linear-gradient(180deg, var(--red), var(--orange));
+    box-shadow: 0 0 12px rgba(230,57,70,.7);
+  }
+  h2 .en {
+    font-size: 11px;
+    color: #4d5c70;
+    letter-spacing: 3px;
+    font-weight: 400;
+    margin-left: auto;
+    text-transform: uppercase;
+  }
+
+  /* ===== 技能条 ===== */
+  .skill { margin-bottom: 16px; }
+  .skill:last-child { margin-bottom: 0; }
+  .skill-top {
+    display: flex; justify-content: space-between;
+    font-size: 14px; margin-bottom: 7px;
+  }
+  .skill-top b { font-weight: 600; }
+  .skill-top em {
+    font-style: normal;
+    font-size: 12px;
+    color: var(--orange);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .bar {
+    height: 9px;
+    background: #1e2836;
+    border-radius: 99px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar i {
+    display: block;
+    height: 100%;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--red), var(--orange));
+    box-shadow: 0 0 14px rgba(255,122,24,.55);
+    animation: grow 1.1s cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes grow { from { width: 0 !important; } }
+
+  .skill-note { font-size: 12px; color: #6b7a8d; margin-top: 6px; }
+
+  /* ===== 战绩网格 ===== */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+  }
+  .stat {
+    background: var(--card2);
+    border: 1px solid #26313f;
+    border-radius: 12px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .stat b {
+    display: block;
+    font-size: 22px;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+  .stat small { color: var(--sub); font-size: 12px; letter-spacing: 1px; }
+
+  /* ===== 时间线 ===== */
+  .item { position: relative; padding-left: 22px; padding-bottom: 22px; border-left: 2px solid #24303e; }
+  .item:last-child { padding-bottom: 0; }
+  .item::before {
+    content: "";
+    position: absolute; left: -7px; top: 7px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--red);
+    box-shadow: 0 0 10px rgba(230,57,70,.8);
+  }
+  .item h3 { font-size: 15px; color: #fff; letter-spacing: .5px; }
+  .item .meta { font-size: 12px; color: var(--orange); letter-spacing: 1px; margin: 2px 0 8px; }
+  .item p, .item li { font-size: 13.5px; color: #a9b6c6; }
+  .item ul { list-style: none; }
+  .item ul li { position: relative; padding-left: 16px; margin-bottom: 5px; }
+  .item ul li::before {
+    content: "▸";
+    position: absolute; left: 0; color: var(--red);
+  }
+
+  /* ===== 荣誉 ===== */
+  .honors { display: grid; gap: 10px; }
+  .honor {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--card2);
+    border: 1px solid #26313f;
+    border-left: 3px solid var(--gold);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    color: #c2cedd;
+  }
+  .honor b { color: var(--gold); flex-shrink: 0; }
+
+  /* ===== 结语 ===== */
+  .quote {
+    text-align: center;
+    font-size: 14px;
+    color: var(--sub);
+    letter-spacing: 1px;
+    padding: 22px;
+    border: 1px dashed #2a3646;
+    border-radius: 14px;
+    margin-top: 20px;
+  }
+  .quote span { color: var(--orange); font-weight: 700; }
+
+  footer {
+    text-align: center;
+    color: #3d4b5c;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 560px) {
+    h1 { font-size: 26px; }
+    .header { padding: 24px 20px; }
+    section { padding: 20px 18px; }
+    .header::after { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ======== 头部 ======== -->
+  <header class="header">
+    <div class="name-row">
+      <div class="avatar">WZ</div>
+      <div>
+        <h1>王 泽 霖</h1>
+        <p class="tagline">萨默斯大学 在读生 &nbsp;|&nbsp; <span class="hl">主武器：相机 · 副武器：R-301</span></p>
+      </div>
+    </div>
+
+    <div class="badges">
+      <span class="badge">Apex 排位选手</span>
+      <span class="badge gold">摄影爱好者</span>
+      <span class="badge blue">美食品鉴家</span>
+      <span class="badge">团队型选手</span>
+      <span class="badge gold">抗压能力 MAX</span>
+    </div>
+
+    <div class="contact">
+      <div>📱 电话<span><a href="tel:19129769069">19129769069</a></span></div>
+      <div>✉️ 邮箱<span><a href="mailto:396972353@qq.com">396972353@qq.com</a></span></div>
+      <div>🎓 院校<span>萨默斯大学（在读）</span></div>
+      <div>📍 现居<span>宿舍 · 显示器正前方</span></div>
+    </div>
+  </header>
+
+  <!-- ======== 自我评价 ======== -->
+  <section>
+    <h2>个人简介 <span class="en">Profile</span></h2>
+    <p style="font-size:14px;color:#a9b6c6;">
+      一名正在萨默斯大学就读、同时长期"兼职"于 Apex Legends 竞技场的多线程青年。
+      擅长在高压环境下做决策——无论是排位赛最后两个圈的 3v3，还是期末周同时赶三个 DDL。
+      信奉"信息即优势"：打游戏靠听脚步声，拍照靠等一束光。
+      性格外向、配合度高、沟通积极，能迅速融入团队并愿意主动补位（字面意义和比喻意义都算）。
+    </p>
+  </section>
+
+  <!-- ======== 专业技能 ======== -->
+  <section>
+    <h2>专业技能 <span class="en">Skills</span></h2>
+
+    <div class="skill">
+      <div class="skill-top"><b>📷 摄影</b><em>熟练 90%</em></div>
+      <div class="bar"><i style="width:90%"></i></div>
+      <p class="skill-note">熟练使用单反/微单，掌握构图、光圈快门ISO三要素与基础后期（Lightroom / 手机修图）；擅长人像与城市街拍，出片率稳定。</p>
+    </div>
+
+    <div class="skill">
+      <div class="skill-top"><b>🎯 Apex Legends</b><em>熟练 95%</em></div>
+      <div class="bar"><i style="width:95%"></i></div>
+      <p class="skill-note">熟练掌握身法与枪械手感，熟悉地图资源点与转点路线，具备清晰的报点意识与团队协同能力。</p>
+    </div>
+
+    <div class="skill">
+      <div class="skill-top"><b>🍜 美食品鉴</b><em>熟练 88%</em></div>
+      <div class="bar"><i style="width:88%"></i></div>
+      <p class="skill-note">擅长从香气、口感、层次、性价比四个维度给出评价；校园周边美食地图已完整探索，可输出高质量探店报告。</p>
+    </div>
+
+    <div class="skill">
+      <div class="skill-top"><b>🗣 沟通与协作</b><em>熟练 85%</em></div>
+      <div class="bar"><i style="width:85%"></i></div>
+      <p class="skill-note">长期担任小队"指挥位"，习惯用简洁指令同步信息，情绪稳定，从不甩锅。</p>
+    </div>
+  </section>
+
+  <!-- ======== Apex 战绩 ======== -->
+  <section>
+    <h2>Apex 生涯数据 <span class="en">Combat Record</span></h2>
+    <div class="stats">
+      <div class="stat"><b>1500+</b><small>累计游戏时长(h)</small></div>
+      <div class="stat"><b>钻石</b><small>最高段位</small></div>
+      <div class="stat"><b>600+</b><small>场均伤害</small></div>
+      <div class="stat"><b>2.8</b><small>K/D 比</small></div>
+      <div class="stat"><b>4</b><small>双锤徽章</small></div>
+      <div class="stat"><b>∞</b><small>倒地次数</small></div>
+    </div>
+    <div style="margin-top:18px;font-size:13.5px;color:#a9b6c6;">
+      <p>▸ <b style="color:#fff;">主力传奇：</b>恶灵 / 万蒂奇 / 生命线 —— 既能切入，也能救人。</p>
+      <p>▸ <b style="color:#fff;">主打武器：</b>R-301 + 和平捍卫者，中近距离稳定输出。</p>
+      <p>▸ <b style="color:#fff;">团队定位：</b>信息位 + 补枪位，负责报点、卡视角、最后一波收尾。</p>
+    </div>
+  </section>
+
+  <!-- ======== 教育背景 ======== -->
+  <section>
+    <h2>教育背景 <span class="en">Education</span></h2>
+    <div class="item">
+      <h3>萨默斯大学 · 本科在读</h3>
+      <p class="meta">在读期间</p>
+      <ul>
+        <li>保持正常课业进度，课余时间合理分配至摄影实践与团队竞技。</li>
+        <li>参与校内社团活动，负责活动记录与现场拍摄。</li>
+        <li>自学能力较强，能快速上手新软件与新玩法。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======== 实践经历 ======== -->
+  <section>
+    <h2>实践经历 <span class="en">Experience</span></h2>
+
+    <div class="item">
+      <h3>Apex Legends 固定小队 · 指挥位</h3>
+      <p class="meta">长期 · 排位与团队协同</p>
+      <ul>
+        <li>负责开局落点决策与中期转点路线规划，降低队伍前期减员率。</li>
+        <li>建立简洁报点规范，团队沟通效率显著提升。</li>
+        <li>在逆风局中主动承担情绪调节角色，保持队伍士气稳定。</li>
+        <li>赛后复盘录像，总结失误点并形成改进清单。</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>校园活动摄影 · 摄影志愿者</h3>
+      <p class="meta">校内 · 活动记录</p>
+      <ul>
+        <li>承担校内活动、社团聚会、毕业季写真的拍摄任务。</li>
+        <li>独立完成选片、调色与交付，作品获得同学一致好评。</li>
+        <li>擅长在光线复杂的环境中快速找到最佳机位。</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>校园美食探店 · 内容创作</h3>
+      <p class="meta">课余 · 美食测评</p>
+      <ul>
+        <li>持续探索校园周边餐饮，累计探店数十家。</li>
+        <li>从口味、分量、价格、环境四维度撰写测评，帮助同学避雷。</li>
+        <li>把"吃饭"这件小事，做成了有方法论的事。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======== 荣誉 ======== -->
+  <section>
+    <h2>荣誉与成就 <span class="en">Honors</span></h2>
+    <div class="honors">
+      <div class="honor"><b>🏆</b><span>排位赛达成 <b style="color:#fff;">钻石段位</b>，单赛季最高排名稳定在前列。</span></div>
+      <div class="honor"><b>🎖️</b><span>获得 <b style="color:#fff;">双锤徽章</b> ×4，单局最高伤害突破 4000。</span></div>
+      <div class="honor"><b>📸</b><span>校园摄影作品被社团公众号选用，单篇阅读量破千。</span></div>
+      <div class="honor"><b>🍽️</b><span>校园美食测评系列获同学"最靠谱探店指南"称号（民间授予）。</span></div>
+      <div class="honor"><b>🤝</b><span>连续多个赛季担任固定小队指挥，队伍零内讧记录保持者。</span></div>
+    </div>
+  </section>
+
+  <!-- ======== 兴趣爱好 ======== -->
+  <section>
+    <h2>兴趣爱好 <span class="en">Interests</span></h2>
+    <p style="font-size:14px;color:#a9b6c6;">
+      🎮 Apex Legends（排位 & 团队配合）&nbsp;&nbsp;·&nbsp;&nbsp;
+      📷 街拍与旅行摄影&nbsp;&nbsp;·&nbsp;&nbsp;
+      🍜 探店与美食测评&nbsp;&nbsp;·&nbsp;&nbsp;
+      🎧 电子音乐&nbsp;&nbsp;·&nbsp;&nbsp;
+      🚴 骑行
+    </p>
+  </section>
+
+  <div class="quote">
+    "跳伞之前，先想好落地之后要做什么。" —— <span>王泽霖</span>
+  </div>
+
+  <footer>WANG ZELIN · RESUME · 2025</footer>
+
+</div>
+</body>
+</html>
