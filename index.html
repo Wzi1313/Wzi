@@ -272,6 +272,31 @@
     section { padding: 20px 18px; }
     .header::after { font-size: 40px; }
   }
+
+  /* ===== 打印 / 导出 PDF ===== */
+  @media print {
+    body {
+      background: #fff !important;
+      color: #111 !important;
+      padding: 0;
+    }
+    .header, section, .quote {
+      background: #fff !important;
+      border-color: #d0d7e2 !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+    .header::before { display: none; }
+    .header::after { color: rgba(0,0,0,.04); }
+    h1, .item h3, h2 { color: #111 !important; -webkit-text-fill-color: #111; }
+    .tagline, .contact div, .skill-note, .item p, .item li, .stat small, footer {
+      color: #444 !important;
+    }
+    .contact span, .contact a, .item p, .item li, .honor { color: #222 !important; }
+    .bar { background: #e8ecf2 !important; }
+    .stat, .honor { background: #f7f9fc !important; }
+    section { page-break-inside: avoid; }
+  }
 </style>
 </head>
 <body>
@@ -299,7 +324,7 @@
       <div>📱 电话<span><a href="tel:19129769069">19129769069</a></span></div>
       <div>✉️ 邮箱<span><a href="mailto:396972353@qq.com">396972353@qq.com</a></span></div>
       <div>🎓 院校<span>萨默斯大学（在读）</span></div>
-      <div>📍 现居<span>宿舍 · 显示器正前方</span></div>
+      <div>📍 现居<span>宿舍</span></div>
     </div>
   </header>
 
@@ -310,7 +335,7 @@
       一名正在萨默斯大学就读、同时长期"兼职"于 Apex Legends 竞技场的多线程青年。
       擅长在高压环境下做决策——无论是排位赛最后两个圈的 3v3，还是期末周同时赶三个 DDL。
       信奉"信息即优势"：打游戏靠听脚步声，拍照靠等一束光。
-      性格外向、配合度高、沟通积极，能迅速融入团队并愿意主动补位（字面意义和比喻意义都算）。
+      性格外向、配合度高、沟通积极，能迅速融入团队并愿意主动补位。
     </p>
   </section>
 
@@ -347,16 +372,15 @@
   <section>
     <h2>Apex 生涯数据 <span class="en">Combat Record</span></h2>
     <div class="stats">
-      <div class="stat"><b>1500+</b><small>累计游戏时长(h)</small></div>
+      <div class="stat"><b>500+</b><small>累计游戏时长(h)</small></div>
       <div class="stat"><b>钻石</b><small>最高段位</small></div>
       <div class="stat"><b>600+</b><small>场均伤害</small></div>
-      <div class="stat"><b>2.8</b><small>K/D 比</small></div>
+      <div class="stat"><b>1</b><small>K/D 比</small></div>
       <div class="stat"><b>4</b><small>双锤徽章</small></div>
-      <div class="stat"><b>∞</b><small>倒地次数</small></div>
     </div>
     <div style="margin-top:18px;font-size:13.5px;color:#a9b6c6;">
-      <p>▸ <b style="color:#fff;">主力传奇：</b>恶灵 / 万蒂奇 / 生命线 —— 既能切入，也能救人。</p>
-      <p>▸ <b style="color:#fff;">主打武器：</b>R-301 + 和平捍卫者，中近距离稳定输出。</p>
+      <p>▸ <b style="color:#fff;">主力传奇：</b>艾什 / 班加罗尔 / 疯马吉 —— 切入型传奇，擅长侧翼突袭与战场分割。</p>
+      <p>▸ <b style="color:#fff;">主打武器：</b>猎兽冲锋枪 + 复仇女神，中近距离稳定输出。</p>
       <p>▸ <b style="color:#fff;">团队定位：</b>信息位 + 补枪位，负责报点、卡视角、最后一波收尾。</p>
     </div>
   </section>
@@ -391,22 +415,20 @@
     </div>
 
     <div class="item">
-      <h3>校园活动摄影 · 摄影志愿者</h3>
+      <h3>摄影</h3>
       <p class="meta">校内 · 活动记录</p>
       <ul>
-        <li>承担校内活动、社团聚会、毕业季写真的拍摄任务。</li>
-        <li>独立完成选片、调色与交付，作品获得同学一致好评。</li>
+        <li>独立完成选片、调色与交付。</li>
         <li>擅长在光线复杂的环境中快速找到最佳机位。</li>
       </ul>
     </div>
 
     <div class="item">
-      <h3>校园美食探店 · 内容创作</h3>
+      <h3>美食探店 · 内容创作</h3>
       <p class="meta">课余 · 美食测评</p>
       <ul>
-        <li>持续探索校园周边餐饮，累计探店数十家。</li>
+        <li>持续探索校园周边餐饮，探店数十家。</li>
         <li>从口味、分量、价格、环境四维度撰写测评，帮助同学避雷。</li>
-        <li>把"吃饭"这件小事，做成了有方法论的事。</li>
       </ul>
     </div>
   </section>
@@ -415,11 +437,9 @@
   <section>
     <h2>荣誉与成就 <span class="en">Honors</span></h2>
     <div class="honors">
-      <div class="honor"><b>🏆</b><span>排位赛达成 <b style="color:#fff;">钻石段位</b>，单赛季最高排名稳定在前列。</span></div>
+      <div class="honor"><b>🏆</b><span>排位赛达成 <b style="color:#fff;">钻石段位</b></span></div>
       <div class="honor"><b>🎖️</b><span>获得 <b style="color:#fff;">双锤徽章</b> ×4，单局最高伤害突破 4000。</span></div>
-      <div class="honor"><b>📸</b><span>校园摄影作品被社团公众号选用，单篇阅读量破千。</span></div>
-      <div class="honor"><b>🍽️</b><span>校园美食测评系列获同学"最靠谱探店指南"称号（民间授予）。</span></div>
-      <div class="honor"><b>🤝</b><span>连续多个赛季担任固定小队指挥，队伍零内讧记录保持者。</span></div>
+      <div class="honor"><b>📸</b><span>摄影作品被公众号选用，单篇阅读量破千。</span></div>
     </div>
   </section>
 
